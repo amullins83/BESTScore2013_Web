@@ -1,0 +1,6 @@
+{
+	"name": "BESTScore2013_Web",
+	"dependencies": {
+		"bootstrap":"*"
+	}
+}

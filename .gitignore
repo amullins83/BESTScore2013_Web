@@ -218,3 +218,15 @@ pip-log.txt
 ## Node
 #################
 node_modules
+
+
+#################
+## Bower
+#################
+bower_components
+
+
+#################
+## Local Private
+#################
+private
