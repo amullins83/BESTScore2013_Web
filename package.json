@@ -10,13 +10,16 @@
         "coffee-script":"*",
         "xml-simple":"*",
         "BESTScore2013":"amullins83/BESTScore2013",
-        "express":"*"
+        "express":"3.4.4",
+        "jade": "*",
+        "less-middleware": "*"
     },
     "devDependencies": {
         "jasmine-node": "*"
     },
     "scripts": {
-        "test": "jasmine-node --coffee test"
+        "test": "jasmine-node --coffee test",
+        "start": "coffee app.coffee"
     },
     "repository": {
         "type": "git",
