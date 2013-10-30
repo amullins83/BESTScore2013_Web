@@ -31,7 +31,7 @@ app.get('/', routes.index)
 app.get('/users', user.list)
 
 # upload response
-app.post '/', upload
+app.post '/upload', upload
 
 http.createServer(app).listen(app.get('port'), ->
   console.log('Express server listening on port ' + app.get('port'))

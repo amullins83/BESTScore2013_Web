@@ -7,22 +7,26 @@ wait_until_done = (req, res, sc)->
         if sc.done
             good_response(req, res, sc)
         else
-            err_response(req, res, sc)
+            err_response(req, res, "Error parsing input file")
     else
         setTimeout ->
             wait_until_done(req, res, sc)
         , 100
 
 good_response = (req, res, sc)->
-    res.render 'index', { title: 'BEST Scorekeeper 2013', teams: sc.teams }
+    res.render 'upload', { title: 'BEST Scorekeeper 2013', teams: sc.teams, password: req.body.password }
 
-err_response = (req, res, sc)->
-    res.json sc.err
+err_response = (req, res, message)->
+    res.render "index", { title: "BEST Scorekeeper 2013", flash: message }
 
 upload = (req, res)->
-    scores_file = req.files.score.path
-    sc = new ScoreCalculator scores_file
-    
-    wait_until_done(req, res, sc)
+    unless req.body.password == process.env.UPLOAD_PASSWORD || "squeaky"
+        err_response req, res, "Incorrect Password"
+    else if req.files
+        scores_file = req.files.score.path
+        sc = new ScoreCalculator scores_file
+        wait_until_done(req, res, sc)
+    else
+        good_response req, res, {}
 
 module.exports = upload

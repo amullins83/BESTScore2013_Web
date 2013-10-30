@@ -3,26 +3,8 @@ extends layout
 block content
     .main
         h1= title
-        form(enctype="multipart/form-data", id="uploader", action="/", method="POST")
-            input(type="file", name="score")
-            input(type="submit", name="upload", value="Upload")
-
-        if teams
-            table(class="scores", id="main_scores")
-                thead
-                    tr
-                        td Team Number
-                        td Total Score
-                        td Rounds Played
-                        td Best Round
-                        td Best Score
-                tbody
-                    for team, num in teams
-                        tr
-                            td= num
-                            td= team.score
-                            td= team.numRounds()
-                            td= team.bestRound()
-                            td= team.bestScore()
-        else
-            p I don't have a teams variable
+        if flash
+            .flash= flash
+        form(action="upload", method="POST")
+            input(type="password", name="password")
+            input(type="submit", value="Login", name="login")
