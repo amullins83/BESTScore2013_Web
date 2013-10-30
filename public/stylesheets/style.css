@@ -1,7 +1,19 @@
 body {
   padding: 50px;
+  margin: 0 auto;
+  position: relative;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.main {
+  margin: 0 auto;
+  position: relative;
+  width: 1024px;
+}
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+table {
+  width: 819.2px;
+  margin: 10px auto;
+  position: relative;
 }

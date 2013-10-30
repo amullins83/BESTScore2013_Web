@@ -1,8 +1,28 @@
+@linkColor: #00B7FF;
+@pageWidth: 1024px;
+
+.relative (@topMargin: 0) {
+    margin: @topMargin auto;
+    position: relative;
+}
+
 body {
   padding: 50px;
+  margin: 0 auto;
+  position: relative;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.main {
+    .relative;
+    width: @pageWidth;
+}
+
 a {
-  color: #00B7FF;
+  color: @linkColor
+}
+
+table {
+    width: (@pageWidth * 0.8);
+    .relative(10px);
 }
