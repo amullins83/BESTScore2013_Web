@@ -18,10 +18,10 @@ block content
                         td Best Round
                         td Best Score
                 tbody
-                    for team, num in teams
+                    for team in teams
                         if team
                             tr
-                                td= num
+                                td= team.number
                                 td= team.score
                                 td= team.numRounds()
                                 td= team.bestRound()

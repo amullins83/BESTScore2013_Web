@@ -14,7 +14,7 @@ wait_until_done = (req, res, sc)->
         , 100
 
 good_response = (req, res, sc)->
-    res.render 'upload', { title: 'BEST Scorekeeper 2013', teams: sc.teams, password: req.body.password }
+    res.render 'upload', { title: 'BEST Scorekeeper 2013', teams: sc.getTeamsSortedByHighScore() if sc?, password: req.body.password }
 
 err_response = (req, res, message)->
     res.render "index", { title: "BEST Scorekeeper 2013", flash: message }
@@ -27,6 +27,6 @@ upload = (req, res)->
         sc = new ScoreCalculator scores_file
         wait_until_done(req, res, sc)
     else
-        good_response req, res, {}
+        good_response req, res, null
 
 module.exports = upload
